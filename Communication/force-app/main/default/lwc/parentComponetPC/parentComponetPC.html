@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+    <c-parent-to-child-alert-c-c></c-parent-to-child-alert-c-c>
+    <div>
+        <p>==========================================================</p>
+        <c-caraousal-component></c-caraousal-component>
+    </div>
+    <div class="slds-p-around_medium lgc-bg">
+        <lightning-input type="number" label="Enter Percentage"
+        onchange={onchangeHandler} value={percentageValue}></lightning-input>
+    </div>
+    <div class="slds-p-around_medium ">
+        <c-progress-bar-c-c progress={percentageValue}></c-progress-bar-c-c>
+    </div>
+    
+    <lightning-button label="Reset" variant='brand' onclick={sliderReset}></lightning-button>
+    <div>
+        <c-slider-component></c-slider-component>
+    </div>
+</lightning-card>
+</template>

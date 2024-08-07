@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Parent modal Component">
+        <lightning-button label="Click" variant="brand" onclick={onclickHandle}>
+
+        </lightning-button>
+        <template lwc:if={ck}>
+            <c-child-modal-component onclose={closeHandler}></c-child-modal-component>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,10 @@
+<template>
+    <lightning-card title="Child Component">
+        <p>Ola Amigos</p>
+        <p>Je m'appelle?</p>
+        <slot name="Fq"></slot>
+        <p>What is your favorite subject</p>
+        <slot name="Sq"></slot>
+        <slot name="footer" onslotchange={footChange} class="slds-card_footer slds-hide"></slot>
+    </lightning-card>
+</template>

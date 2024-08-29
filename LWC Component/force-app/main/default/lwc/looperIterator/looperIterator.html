@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="for Loop">
+        <div >
+            <template for:each={placesToVisit} for:item="place">
+                <div key={place}>
+                    <p>{place}</p>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+<lightning-card title="Iterator Loop">
+    <template iterator:it={companiesList}>
+        <div key={it.value.id}>
+        <template lwc:if={it.first}>
+        <div>
+            <strong>
+                The List Top Companies:-
+            </strong>
+        </div>
+        </template>
+            <p>{it.value.id}:-<strong>{it.value.Name}</strong></p>
+        <template lwc:if={it.last}>
+        <div>
+            <strong>
+                THANK YOU
+            </strong>
+        </div>
+        </template>
+        </div>
+    </template>
+</lightning-card>
+</template>

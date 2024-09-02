@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Lightning component">
+        <div>
+            <p>This is a component selector example</p>
+        </div>
+        <div>
+            <template for:each={userName} for:item='user'>
+                <div class="name" key={user}>
+                    <p class="user">{user}</p>
+                </div>
+            </template>
+            <div class="child" lwc:dom="manual">
+            </div>
+            <lightning-button label="Caching" onclick={onclickHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

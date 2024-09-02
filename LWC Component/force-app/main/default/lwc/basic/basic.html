@@ -1,0 +1,14 @@
+<template>
+    <lightning-card>
+        <lightning-input label="Enter your Name" value={nameChange} onchange={onchangeHandler}></lightning-input>
+         <p>{handleGreeting}</p>
+        <!-- <p>
+            {greeting}
+        </p> -->
+        <lightning-button label="Click" onclick={onclickHandler}></lightning-button>
+        <div lwc:if={ck}>
+            <p>Address is as follows:-</p>
+            <p>{handleAddress}</p>
+        </div>
+    </lightning-card>
+</template>

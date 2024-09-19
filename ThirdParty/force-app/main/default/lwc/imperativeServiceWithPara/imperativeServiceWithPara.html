@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Imperative with Params"  icon-name="custom:custom55">
+        <div class="slds-var-p-around_medium">
+            <lightning-input
+                label="Enter Account Name"
+                type="Search"
+                value={accName}
+                onchange={handleNameChange}
+            >
+            </lightning-input>
+            <template if:true={acc}>
+                <template for:each={acc} for:item="account">
+                    <div class="slds-box slds-box__xx-small" key={account.Id}>
+                        <div>Name: {account.Name}</div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

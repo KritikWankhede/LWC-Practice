@@ -1,0 +1,6 @@
+<apex:page controller="pdfGen" renderAs="pdf" applyHtmlTag="false" showHeader="false" cache="true" readOnly="true">
+    <html>
+        <meta http-equiv="Content-Type" content="text/html ; charset=UTF-8"/>
+        <apex:outputText value="{!pdfText}" escape="false"></apex:outputText>
+    </html>
+</apex:page>

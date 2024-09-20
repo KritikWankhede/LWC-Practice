@@ -6,6 +6,11 @@ import { getPicklistValues,getObjectInfo } from 'lightning/uiObjectInfoApi';
 import CONTACT_OBJ from '@salesforce/schema/Contact';
 import LEVEL from '@salesforce/schema/Contact.Level__c';
 
+const columns=[
+    {label:'First Name',fieldApiName:'FirstName'},
+    {label:'Last Name',fieldApiName:'LasName'},
+];
+
 export default class ContactShowcase extends LightningElement {
     @api label = 'Enter the Account Name';
     @api placeholder = 'search...'; 
@@ -13,6 +18,7 @@ export default class ContactShowcase extends LightningElement {
     @api sObjectApiName = 'Account';
     @api defaultRecordId = '';
     // @track selectedText='';
+    column=columns;
     conList=[];
     ans;
     selectedLevel = '';

@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Enter Your Aadhar Card" icon-name="custom:custom12">
+        <div>
+            <lightning-input label="Aadhar Card" type="text" value={aadharCard} onchange={handleAadharChange} maxlength="12" required >
+            </lightning-input>
+            <lightning-button onclick={handleAadharCheck} label="Check"></lightning-button>
+            <p>{message}</p>
+            <template if:true={isEligible}>
+                <div>
+                    <lightning-input label="New Donation Date" type="date" name="newDonationDate" value={newDonationDate} onchange={handleInputChange} required >
+                    </lightning-input>
+                    <lightning-input label="Campaign Name" type="text" name="campaignId" value={campaignId} onchange={handleInputChange} required></lightning-input>
+                    <lightning-input label="Age" type="number" name="age" value={age} onchange={handleInputChange} required></lightning-input>
+                    <lightning-button onclick={handleUpdate} label="Update"></lightning-button>
+                </div>
+            </template>
+            <template if:true={newDonor}>
+                <c-donor-form></c-donor-form>
+            </template>
+        </div>
+    </lightning-card>
+</template>

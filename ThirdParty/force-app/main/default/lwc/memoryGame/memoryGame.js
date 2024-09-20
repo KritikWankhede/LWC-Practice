@@ -142,4 +142,3 @@ export default class MemoryGame extends LightningElement {
             }
         }
 }
- 

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Blood Bank Campaign Details">
+        <template lwc:if={ck}>
+        <div>
+            <template if:true={res}>
+            <lightning-datatable key-field="Id" data={res} columns={columns}>
+            </lightning-datatable>
+            <template if:true={err}></template>
+        </template>
+        </div>
+    </template>
+    <div class="slds-clearfix">
+        <lightning-button label="Show Details" onclick={handleShow} class="slds-float_left"></lightning-button>
+        <lightning-button label="Close Details" onclick={handleClose} class="slds-float_right"></lightning-button>
+    </div>
+    </lightning-card>
+</template>

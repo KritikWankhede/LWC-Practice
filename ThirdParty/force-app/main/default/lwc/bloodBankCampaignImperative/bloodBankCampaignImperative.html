@@ -1,0 +1,14 @@
+<template>
+    <lightning-card icon-name="custom:custom23" title="Ongoing Blood Bank Campaign">
+        
+            <template if:true={ck}>
+                <lightning-datatable key-field="id" columns={column} data={res} ></lightning-datatable>
+            </template>
+            <template if:true={err}></template>
+            <div class="slds-clearfix">
+                <lightning-button label="Show Details"  onclick={handleClick} class="slds-float_left"></lightning-button>
+                <lightning-button label="Close Details"  onclick={handleClickClose} class="slds-float_right"></lightning-button>
+            </div>
+        
+    </lightning-card>
+</template>

@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Blood Donation Eligibility">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                label="Aadhar Number"
+                value={aadharNumber}
+                onchange={handleInputChange}
+                placeholder="Enter Aadhar Number">
+            </lightning-input>
+            <lightning-button
+                label="Check Eligibility"
+                onclick={handleCheckEligibility}
+                class="slds-m-top_medium">
+            </lightning-button>
+        </div>
+        
+        <template if:true={message}>
+            <p class="slds-m-around_medium">{message}</p>
+        </template>
+        
+        <template if:true={showForm}>
+            <lightning-record-edit-form object-api-name="Donor__c" >
+                <lightning-messages></lightning-messages>
+                <lightning-input-field field-name="Donor_Name__c"></lightning-input-field>
+                <lightning-input-field field-name="Aadhar_Card_Number__c"></lightning-input-field>
+                <lightning-input-field field-name="Donation_Date__c"></lightning-input-field>
+                <lightning-output-field field-name="Email_Id__c"></lightning-output-field>
+                <lightning-button class="slds-m-top_medium" type="submit" label="Submit"></lightning-button>
+            </lightning-record-edit-form>
+        </template>
+    </lightning-card>
+</template>

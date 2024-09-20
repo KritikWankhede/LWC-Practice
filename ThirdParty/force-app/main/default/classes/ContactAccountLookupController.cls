@@ -14,9 +14,7 @@ public with sharing class ContactAccountLookupController {
 
         @AuraEnabled(cacheable=true)
         public static List<Contact> getContactRecord(Id accId,String optLevel){
-            return [Select Id,LastName,FirstName,AccountId,Level__c from Contact 
+            return [Select Id,LastName,FirstName,AccountId,Account.Name,Level__c from Contact 
             where AccountId=:accId AND Level__c=: optLevel];
         }
-    
-    
 }

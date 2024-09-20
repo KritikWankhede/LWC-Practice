@@ -1,4 +1,4 @@
-import { LightningElement,api,wire} from 'lwc';
+import { LightningElement,api,wire,track} from 'lwc';
 import getAccountId from '@salesforce/apex/ContactAccountLookupController.getAccountId';
 // const DELAY=300;
 import getContactRecord from '@salesforce/apex/ContactAccountLookupController.getContactRecord';
@@ -7,8 +7,17 @@ import CONTACT_OBJ from '@salesforce/schema/Contact';
 import LEVEL from '@salesforce/schema/Contact.Level__c';
 
 const columns=[
-    {label:'First Name',fieldApiName:'FirstName'},
-    {label:'Last Name',fieldApiName:'LasName'},
+    {label:'First Name',fieldName:'FirstName'},
+    {label:'Last Name',fieldName:'LastName'},
+    { 
+        label: 'Account Name', 
+        fieldName: 'accountUrl', 
+        type: 'url', 
+        typeAttributes: { 
+            label: { fieldName: 'AccountName'}, 
+            target: '_self' 
+        } 
+    }
 ];
 
 export default class ContactShowcase extends LightningElement {
@@ -18,8 +27,9 @@ export default class ContactShowcase extends LightningElement {
     @api sObjectApiName = 'Account';
     @api defaultRecordId = '';
     // @track selectedText='';
+    ck=false;
     column=columns;
-    conList=[];
+    @track conList=[];
     ans;
     selectedLevel = '';
     LevelOptions=[];
@@ -76,7 +86,7 @@ export default class ContactShowcase extends LightningElement {
         const searchKey = event.target.value;
         this.delayTimeout = setTimeout(() => {
         this.searchKey = searchKey;
-        }, 1000);
+        }, 500);
     }
     // method to toggle lookup result section on UI 
     toggleResult(event){
@@ -144,9 +154,22 @@ handelSelectRecordHelper(){
         console.log('Inside getRecords');
         let recId=this.ans[0].Id;
         console.log(recId);
-        getContactRecord({accId:recId,optLevel: this.selectedLevel}).then(result=>{
-            this.conList=result;
+        getContactRecord({accId:recId,optLevel: this.selectedLevel}).then(result => {
+            this.conList = result.map(contact => {
+                return {
+                    ...contact,
+                    accountUrl: '/' + contact.AccountId,
+                    AccountName: contact.Account ? contact.Account.Name : ''
+                };
+            });
+            console.log('Inside Get contact Record');
             console.log(this.conList);
+            console.log(this.ck);
+            if(this.conList.length>0){
+                this.ck=true;
+            }
+            console.log(this.ck);
+            console.log('End of getRecords');
         }).catch(error=>{
             console.log(error);
         });

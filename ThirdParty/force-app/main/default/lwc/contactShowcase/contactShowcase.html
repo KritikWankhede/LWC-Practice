@@ -72,21 +72,17 @@
             onchange={handleChange} >
     </lightning-combobox>
     <lightning-button variant="brand" label="Submit" title="Submit" onclick={getRecords}
-        class="slds-m-left_x-small"></lightning-button>
-    <template if:true={conList}>
+        ></lightning-button>
+    <template if:true={ck}>
         <!-- <template for:each={conList} for:item="con">
             <div key={con.Id}>
                 <div>{con.FirstName}</div>
                 <div>{con.LastName}</div>
             </div>
         </template> -->
-            <div style="height: 300px;">
-                <lightning-datatable
-                        key-field="id"
-                        data={conList}
-                        columns={column}
-                        hide-checkbox-column
-                >
+            <div>
+                <lightning-datatable key-field="id" data={conList} columns={column} 
+                hide-checkbox-column>
                 </lightning-datatable>
             </div>
     </template>

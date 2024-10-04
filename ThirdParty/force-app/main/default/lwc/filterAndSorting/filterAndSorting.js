@@ -7,7 +7,9 @@ export default class FilterAndSorting extends LightningElement {
     filterData = [];
     timer;
     filterBy = 'Name';
-
+    sortBy='Name';
+    direction='asc';
+    
     @wire(getContactList)
     getRecords({ data, error }) {
         if (data) {
@@ -48,5 +50,23 @@ export default class FilterAndSorting extends LightningElement {
         } else {
             this.filterData = [...this.fullDataTable];
         }
+    }
+
+    sortHandler(event){
+        this.sortBy=event.target.value;
+        this.filterData=[...this.sortedBy(this.filterData)];
+    }
+
+    sortedBy(toSortData){
+        const data=[...toSortData];
+        data.sort((a,b)=>{
+            if(a[this.sortBy]===b[this.sortBy]){
+                return 0;
+            }
+            return this.direction==='desc' ? 
+            (a[this.sortBy]<b[this.sortBy] ? 1 : -1) : 
+            (a[this.sortBy]>b[this.sortBy] ? 1 : -1);
+        });
+        return data;
     }
 }

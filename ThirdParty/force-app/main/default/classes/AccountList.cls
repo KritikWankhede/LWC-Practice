@@ -16,4 +16,14 @@ public with sharing class AccountList {
         return [Select Id,Name from Account 
                 Where Name LIKE: '%'+key+'%'];
     }
+
+    @AuraEnabled
+    public static List<Account> fetchAccount( String accName){
+        try {
+            return [Select Id,Name,AnnualRevenue,Industry,Type from Account 
+                where Name =: accName Limit 1];
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

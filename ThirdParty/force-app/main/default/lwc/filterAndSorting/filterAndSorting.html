@@ -2,7 +2,7 @@
     <lightning-card title="Sorting and Filtering" icon-name="custom:custom78">
         <div class="slds-var-m-around_medium">
             <lightning-layout>
-                <lightning-layout-item size="2" padding="around_small">
+                <lightning-layout-item size="2" padding="around-small">
                     <lightning-combobox 
                         label="Filter by"
                         name="filterBy"
@@ -12,12 +12,22 @@
                     >
                     </lightning-combobox>
                 </lightning-layout-item>
-                <lightning-layout-item size="4" padding="around_small">
+                <lightning-layout-item size="4" padding="around-small">
                     <lightning-input 
                         placeholder="Enter the name" 
                         onchange={changeHandler} 
                         type="text"
                     ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" padding="around-small">
+                    <lightning-combobox 
+                        label="Sort By"
+                        name="sortBy"
+                        value={sortBy}
+                        options={filterByOptions}
+                        onchange={sortHandler}
+                    >
+                    </lightning-combobox>
                 </lightning-layout-item>
             </lightning-layout>
             <table>

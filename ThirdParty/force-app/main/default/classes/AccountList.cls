@@ -26,4 +26,15 @@ public with sharing class AccountList {
             throw new AuraHandledException(e.getMessage());
         }
     }
+
+    @AuraEnabled(cacheable=true)
+    public static List<Account> getAccountListCSV(){
+        try {
+            List<Account> accList=[Select Id,Name,AnnualRevenue,Industry,Type from Account];
+            System.debug('Account List:-' +accList);
+            return accList;
+        } catch (Exception e) {
+            throw new AuraHandledException(e.getMessage());
+        }
+    }
 }

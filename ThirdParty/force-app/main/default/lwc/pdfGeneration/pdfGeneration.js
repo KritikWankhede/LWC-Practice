@@ -40,6 +40,7 @@ export default class PdfGeneration extends LightningElement {
             return total+parseInt(service.amount);
         },0);
     }
+    
     pdfHandler(){
         let content=this.template.querySelector('.container');
         console.log(content.outerHTML);

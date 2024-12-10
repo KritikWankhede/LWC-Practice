@@ -1,0 +1,53 @@
+<template>
+    <lightning-card title="Sorting and Filtering" icon-name="custom:custom78">
+        <div class="slds-var-m-around_medium">
+            <lightning-layout>
+                <lightning-layout-item size="2" padding="around-small">
+                    <lightning-combobox 
+                        label="Filter by"
+                        name="filterBy"
+                        value={filterBy}
+                        options={filterByOptions}
+                        onchange={filterHandleChange}
+                    >
+                    </lightning-combobox>
+                </lightning-layout-item>
+                <lightning-layout-item size="4" padding="around-small">
+                    <lightning-input 
+                        placeholder="Enter the name" 
+                        onchange={changeHandler} 
+                        type="text"
+                    ></lightning-input>
+                </lightning-layout-item>
+                <lightning-layout-item size="2" padding="around-small">
+                    <lightning-combobox 
+                        label="Sort By"
+                        name="sortBy"
+                        value={sortBy}
+                        options={filterByOptions}
+                        onchange={sortHandler}
+                    >
+                    </lightning-combobox>
+                </lightning-layout-item>
+            </lightning-layout>
+            <table>
+                <thead>
+                    <tr>
+                        <template for:each={heading} for:item="heading">
+                            <th key={heading} style="text-align: center; border: 1px solid grey">{heading}</th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={filterData} for:item="fullData">
+                        <tr key={fullData.Id}>
+                            <td style="padding: 8px; text-align: center; border: 1px solid grey;">{fullData.Name}</td>
+                            <td style="padding: 8px; text-align: center; border: 1px solid grey;">{fullData.Title}</td>
+                            <td style="padding: 8px; text-align: center; border: 1px solid grey;">{fullData.Email}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

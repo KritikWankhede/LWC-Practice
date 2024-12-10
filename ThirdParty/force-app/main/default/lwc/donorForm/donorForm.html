@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Fill Donor Details" icon-name="custom:custom32">    
+        <lightning-record-form
+                               object-api-name={objectApiName}
+                               mode="edit"
+                               columns="1"
+                               fields={fields}
+                               onsuccess={handleSuccessClick}
+                               onerror={handleAlertClick}>
+        </lightning-record-form>
+    
+    </lightning-card>
+</template>

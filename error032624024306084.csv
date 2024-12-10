@@ -1,0 +1,5 @@
+"AUTHOR__C","BOOK_TYPE__C","ID","EXT_BOOK_ID__C","NAME","PRICE__C","ERROR"
+"Matt","Classic","a0BGA000050SM152AG","B092","Atomic Habits","890","Duplicate external id specified: b092"
+"Hugo","Fiction","a0BGA000050SM162AG","B093","Two States","990","Duplicate external id specified: b093"
+"Bond","Fiction","","B092","No Time To Die","350","Duplicate external id specified: b092"
+"Shetty","Fiction","","B093","Kantara","750","Duplicate external id specified: b093"

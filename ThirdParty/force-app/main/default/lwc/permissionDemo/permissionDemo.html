@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Permission Check User Permission" icon-name="custom:custom20">
+        <template if:true={hasViewAllDataAvailable}>
+            <p>You have permission.</p>
+        </template>
+        <template if:false={hasViewAllDataAvailable}>
+            <p>You don't have permission.</p>
+        </template>
+    </lightning-card>
+    <lightning-card title="Permission Check Custom Permission" icon-name="custom:custom21">
+        <template if:true={hasCustomPermissionAvailable}>
+            <p>You have custom permission.</p>
+        </template>
+        <template if:false={hasCustomPermissionAvailable}>
+            <p>You don't have custom permission.</p>
+        </template>
+    </lightning-card>
+</template>

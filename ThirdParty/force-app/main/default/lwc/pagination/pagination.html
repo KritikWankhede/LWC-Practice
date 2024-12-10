@@ -1,0 +1,22 @@
+<template>
+    <lightning-card title="Contact Table" icon-name="custom:custom80">
+        <div class="slds-var-m-around_medium">
+            <template if:true={recordsToDisplay}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={recordsToDisplay}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+        </div>
+        <lightning-button disabled={disablePrevious} icon-name="utility:chevronleft" 
+            label="Previous" alternative-text="Previous" onclick={previousPage}>
+        </lightning-button>
+        <span class="slds-badge">Showing {pageNumber} of {totalPages} Page(s)</span>
+        <lightning-button disabled={disableLast} icon-name="utility:chevronright" 
+            label="Next" alternative-text="Next" onclick={nextPage} 
+            class="slds-p-horizontal_x-small" icon-position="right">
+        </lightning-button>
+    </lightning-card>
+</template>

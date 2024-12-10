@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Imperative Demo" icon-name="custom:custom53">
+        <div class="slds-var-p-around_medium">
+            <lightning-button label="Click To fetch Account" variant="brand" onclick={handleClick}>
+            </lightning-button>
+            <template if:true={accountsList}>
+                <template for:each={accountsList} for:item="acc">
+                    <div class="slds-box slds-box__xx-small" key={acc.Id}>
+                        <div>Name: {acc.Name}</div>
+                        <div>Type: {acc.Type}</div>
+                    </div>
+                </template>
+            </template>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,49 @@
+<template>
+    <lightning-card title="Pdf Generation" icon-name="custom:custom65">
+        <div class="container" style="background: white; padding: 16px">
+           <div style="margin-bottom: 20px">
+                <div style="display:inline-block; float: right" >
+                    <div>Invoice Name:  {invoiceData.invoiceNumber}</div>
+                    <div>Invoice Date:  {invoiceData.invoiceDate}</div>
+                    <div>Invoice Due Date:  {invoiceData.invoiceDue}</div>
+                </div>
+           <div>
+                <div style="display:inline-block ; margin-bottom: 10px">
+                    <div>{invoiceData.companyName}</div>
+                    <div>{invoiceData.address1}</div>
+                    <div>{invoiceData.address2}</div>
+                </div>
+                <div style="display:inline-block">
+                    <div>Client Name:  {clientData.client}</div>
+                    <div>UserName:  {clientData.userName}</div>
+                    <div>Email:  {clientData.email}</div>
+                </div>
+            </div>
+        </div>
+            <div style="background: rgb(229, 222, 222);
+                padding:8px; margin:16px 0px">
+                    <div style="display:inline "><b>Services</b></div>
+                    <div style="display:inline;width: 10%;margin: 0px auto;
+                    position: absolute;left: 50%;transform: translateX(-50%);">
+                    <b>Time</b>
+                    </div>
+                    <div style="display:inline;float:right"><b>Amount</b></div>
+            </div>
+            <template iterator:service={services}>
+                <div key={service.value.name} style="padding: 8px;">
+                    <div style="display:inline">{service.value.name}</div>
+                    <div style="display:inline;width: 10%;margin: 0px auto;
+                    position: absolute;left: 50%;transform: translateX(-50%); text-align:center">{service.value.time}</div>
+                    <div style="display:inline ; float:right">${service.value.amount}</div>
+                </div>
+                    <div if:true={service.last} key={service.value.name}>
+                    <div>Total Amount : ${totalAmount}</div>
+                </div>
+            </template> 
+        </div>
+        <div>
+            <lightning-button variant="brand" label="Generate PDF" title="Generate"
+                onclick={pdfHandler}></lightning-button>
+        </div>
+    </lightning-card>
+</template>

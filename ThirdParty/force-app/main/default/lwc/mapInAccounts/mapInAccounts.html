@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Literally Maps in Account" icon-name="custom:custom69">
+        <div class="slds-var-p-around_medium slds-box">
+            <template if:true={mapMarkers.length}>
+                <lightning-map map-markers={mapMarkers}
+                markers-title={markersTitle}
+                onmarkerselect={markerHandler}
+                selected-marker-value={markerValue}>
+            </lightning-map>
+            </template>
+            <template if:false={mapMarkers.length}>
+                <lightning-spinner alternative-text="Loading" size="small"></lightning-spinner>
+            </template>
+        </div>
+    </lightning-card>
+</template>

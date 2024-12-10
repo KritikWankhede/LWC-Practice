@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Contact With Unique Email" icon-name="custom:custom79">
+        <div>
+            <div>
+                <label for="firstName">First Name</label>
+            </div>
+            <div>
+                <input type="text" name="FirstName" onkeyup={handleKeyPress} data-id="FirstName"></input>
+            </div>
+            <div>
+                <label for="LastName">Last Name</label>
+            </div>
+            <div>
+                <input type="text" name="LastName" onkeyup={handleKeyPress} data-id="LastName"></input>
+            </div>
+            <div>
+                <label for="Email">Email</label>
+            </div>
+            <div>
+                <input type="email" name="Email" onkeyup={handleKeyPress} data-id="Email"></input>
+            </div>
+        </div>
+        
+        <template if:true={ck}>
+            <button type="submit" id="Submit" onclick={submitHandler} disabled={isDisable}>Submit</button>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,8 @@
+<template>
+    <lightning-card title="Form In lightning" icon-name="custom:custom94">
+        <lightning-pill label="Pill to test" onclick={onClickHandler}></lightning-pill>
+        <template if:true={showInfo}>
+            <span>{showInfo}</span>
+        </template>
+    </lightning-card>
+</template>

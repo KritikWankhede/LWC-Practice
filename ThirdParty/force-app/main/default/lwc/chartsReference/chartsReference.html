@@ -1,0 +1,26 @@
+<template>
+    
+        <div class="slds-var-p-around_medium">
+            <lightning-layout multiple-rows>
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-card title="All Opportunity " icon-name="custom:custom84">
+                        <template if:true={pieChartData.length}>
+                            <c-chartin-l-w-c
+                             chart-heading="Opportunity Chart"
+                             chart-title="Opportunity With Stage Name"
+                             chart-label={pieChartData}
+                             chart-data={pieChartValue}
+                             type="doughnut"
+                        ></c-chartin-l-w-c>
+                        </template>
+                    </lightning-card>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" size="6">
+                    <lightning-card title="Opportunity 2" icon-name="custom:custom85">
+                        <c-chartin-l-w-c></c-chartin-l-w-c>
+                    </lightning-card>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+    
+</template>

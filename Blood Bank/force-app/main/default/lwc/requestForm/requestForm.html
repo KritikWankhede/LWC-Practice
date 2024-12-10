@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="Blood Request Details" icon-name="standard:swarm_request" >
+        <lightning-record-form object-api-name={objectApiName}
+                                onsuccess={handleSuccessClick}
+                                onerror={handleAlertClick}
+                                fields={selectedFields}
+                                columns="2"
+                                mode="edit">
+        </lightning-record-form>
+    </lightning-card>
+</template>

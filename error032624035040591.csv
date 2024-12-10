@@ -1,0 +1,5 @@
+"NAME","AUTHOR__C","BOOK_TYPE__C","PRICE__C","ID","EXT_BOOK_ID__C","ERROR"
+"Se7ven","Morgan Freeman","Classic","540","a0BGA000050SMIO2A4","B097","DUPLICATE_VALUE:Duplicate external id specified: b097
+Error fields: Ext_Book_ID__c "
+"Gladiator","Vladimir ShivKumar","Classic","100","","B097","DUPLICATE_VALUE:Duplicate external id specified: b097
+Error fields: Ext_Book_ID__c "

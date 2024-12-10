@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Modal Wrapper" icon-name="custom:custom86">
+        <div class="slds-var-m-around_medium">
+            <lightning-button label="Click to Open" onclick={onclickHandler}>
+            </lightning-button>
+        </div>
+        <template if:true={isOpen}>
+            <c-modal onclose={closeModal}>
+                <h2 slot="title">Modal Header</h2>
+                <p>Reuable Modal</p>
+                <div slot="footer">
+                    <lightning-button variant="brand" label="Close" onclick={closeModal}>
+                    </lightning-button>
+                </div>
+            </c-modal>
+        </template>
+    </lightning-card>
+</template>

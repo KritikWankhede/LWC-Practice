@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="Wire Demo with function Approach" icon-name="custom:custom43">
+        <div class="slds-var-p-around_medium">
+            <template if:true={userDetails}>
+                <div>Name: {userDetails.Name.value}</div>
+                <div>Email: {userDetails.Email.value}</div>
+                <div>Phone: {userDetails.Phone.value}</div>
+            </template>         
+        </div>
+    </lightning-card>
+    <lightning-card title="Wire Demo with Property Approach" icon-name="custom:custom44">
+        <div class="slds-var-p-around_medium">
+            <template if:true={userDetailsProperty.data}>
+                <div>Name: {userDetailsProperty.data.fields.Name.value}</div>
+                <div>Email: {userDetailsProperty.data.fields.Email.value}</div>
+            </template>         
+        </div>
+    </lightning-card>
+</template>

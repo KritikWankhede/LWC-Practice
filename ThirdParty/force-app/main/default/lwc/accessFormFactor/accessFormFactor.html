@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Access Form Factor" icon-name="custom:custom22">
+        <div>
+            <p>Form Factor:-</p>
+        </div>
+        <template lwc:if={isDesktop}>
+            <p>Desktop</p>
+        </template>
+        <template lwc:elseif={isTablet}>
+            <p>Tablet</p>
+        </template>
+        <template lwc:else>
+            <p>Mobile</p>
+        </template>
+    </lightning-card>
+</template>

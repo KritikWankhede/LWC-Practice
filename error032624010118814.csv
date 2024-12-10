@@ -1,0 +1,3 @@
+"AUTHOR__C","BOOK_TYPE__C","ID","EXT_BOOK_ID__C","NAME","PRICE__C","ERROR"
+"Bond","Fiction","","B092","No Time To Die","350","duplicate value found: Ext_Book_ID__c duplicates value on record with id: a0BGA000050SM152AG"
+"Shetty","Fiction","","B093","Kantara","750","duplicate value found: Ext_Book_ID__c duplicates value on record with id: a0BGA000050SM162AG"

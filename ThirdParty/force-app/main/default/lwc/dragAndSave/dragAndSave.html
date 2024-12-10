@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Drag and Drop Datatable" icon-name="custom:custom81">
+        <div class="slds-grid slds-grid_vertical">
+            <div class="slds-scrollable slds-grow">
+              <div class="slds-scrollable_none">
+                <table
+                  aria-multiselectable="true"
+                  class="
+                    slds-table slds-no-row-hover
+                    slds-table_bordered
+                    slds-table_fixed-layout
+                    slds-table_resizable-cols
+                  "
+                  role="grid"
+                >
+                  <thead>
+                    <tr class="slds-line-height_reset">
+                      <th>First Name</th>
+                      <th>Last Name</th>
+                      <th>Email</th>
+                      <th>Account Name</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <template for:each={data} for:item="con" for:index="index">
+                      <tr
+                        key={con.Id}
+                        onchange={Change}
+                        draggable="true"
+                        ondrop={Drop}
+                        ondragstart={DragStart}
+                        ondragover={DragOver}
+                        title={index}
+                      >
+                        <td role="gridcell">
+                          <div class="slds-cell-wrap" title={index}>{con.FirstName}</div>
+                        </td>
+                        <td role="gridcell">
+                          <div class="slds-cell-wrap" title="Last Name">{con.LastName}</div>
+                        </td>
+                        <td role="gridcell">
+                            <div class="slds-cell-wrap" title="Email">{con.Email}</div>
+                        </td>
+                        <td role="gridcell">
+                          <div class="slds-cell-wrap" title="Account Name">{con.AccountName}</div>
+                        </td>
+                      </tr>
+                    </template>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+    </lightning-card>
+</template>

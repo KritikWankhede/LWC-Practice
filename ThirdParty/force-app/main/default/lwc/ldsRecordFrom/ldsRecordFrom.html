@@ -1,0 +1,11 @@
+<template>
+    <lightning-card title="LDS Record Form" icon-name="custom:custom45">
+        <div class="slds-m-around_medium">
+            <lightning-record-form
+                object-api-name={objectApiName}
+                fields={fields}
+                onsuccess={successHandler}>
+            </lightning-record-form>
+        </div>
+    </lightning-card>
+</template>

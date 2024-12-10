@@ -1,0 +1,28 @@
+<template>
+<lightning-card title="Blood Request Status" icon-name="custom:custom12">
+    <div>
+        <lightning-combobox name="Status" label="Choose Status" value={selectedValue} options={Options}
+        onchange={typeHandler}></lightning-combobox>
+        <template if:true={filteredReq.data}>
+            <template for:each={filteredReq.data} for:item='req'>
+                <div class="slds-box" key={req.Id}>
+                    <p><strong>Id : </strong>{req.Name}</p>
+                    <p><strong>Name : </strong>{req.Patient_Name__c}</p>
+                    <p><strong>Blood Group : </strong>{req.Blood_Group__c}</p>
+                    <p><strong>Blood  Quantity: </strong>{req.Blood_Quantity_Required__c}</p>
+                    <p><strong>Status: </strong>{req.Status__c}</p>
+                </div>
+            </template>
+        </template>
+    </div>
+</lightning-card>
+</template>
+
+
+<!-- <lightning-combobox
+            name="progress"
+            label="Status"
+            value={value}
+            placeholder="Select Progress"
+            options={options}
+            onchange={handleChange} ></lightning-combobox> -->

@@ -1,0 +1,28 @@
+<template>
+    <lightning-card title="Picklist By RecordTypeAdapter" icon-name="custom:custom49">
+        <div class="slds-var-m-around_medium">
+            <template if:true={ratingOptions}>
+                <lightning-combobox
+                    name="rating"
+                    label="Rating"
+                    value={selectedRating}
+                    placeholder="Select Rating"
+                    options={ratingOptions}
+                    onchange={handleChange}
+                >
+                </lightning-combobox>
+            </template>
+            <template if:true={industryOptions}>
+                <lightning-combobox
+                    name="industry"
+                    label="Industry"
+                    value={selectedIndustry}
+                    placeholder="Select Industry"
+                    options={industryOptions}
+                    onchange={handleChange}
+                >
+                </lightning-combobox>
+            </template>
+        </div>
+    </lightning-card>
+</template>

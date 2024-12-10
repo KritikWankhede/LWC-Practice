@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Current User Information" >
+        <div class="slds-m-medium_around">
+            User Id:-{currentUserId}
+        </div>
+        <template if:true={isGuestUser}>
+            <p>Guest User</p>
+        </template>
+        <template if:false={isGuestUser}>
+            <p>Not a Guest User</p>
+        </template>
+    </lightning-card>
+</template>

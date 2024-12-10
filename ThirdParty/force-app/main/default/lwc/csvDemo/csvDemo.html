@@ -1,0 +1,14 @@
+<template>
+    <lightning-card title="CSV Generation" icon-name="custom:custom88">
+        <div class="slds-var-m-around_medium">
+            <template if:true={ck}>
+               <lightning-datatable columns={columns} data={accountList} key-field="id"
+               hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+        </div>
+
+        <lightning-button label="Generate CSV" variant="brand" onclick={generateCSV}>
+        </lightning-button>
+    </lightning-card>
+</template>

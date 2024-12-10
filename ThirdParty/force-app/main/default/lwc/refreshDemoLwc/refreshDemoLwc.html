@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Refresh Controller Component" icon-name="custom:custom56">
+        <div class="slds-var-p-around_medium">
+            <template if:true={contacts.data}>
+                <lightning-datatable
+                key-field="Id"
+                data={contacts.data}
+                columns={columns}
+                onsave={handleSave}
+                draft-values={draftValues}
+                ></lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
+</template>

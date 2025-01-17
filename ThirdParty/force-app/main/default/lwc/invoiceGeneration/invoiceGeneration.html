@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Check the Opportuntiy Products" class="slds-p-around_medium">
+        <lightning-input type="text" label="Enter Opportunity Name"
+         onchange={handleOppChange}
+        ></lightning-input>
+        <div class="slds-var-around_medium">
+            <lightning-button variant="brand" label="Search" onclick={searchProduct}>
+            </lightning-button>
+        </div>
+        <!-- <div class="slds-var-around_medium">
+            <div if:true={showIframe}>
+                <iframe lwc:dom="manual" width="100%" height="600px">
+                <iframe lwc:dom="manual" width="100%" height="600px">
+                </iframe>
+                <lightning-button variant="brand" label="Download PDF" onclick={downloadPdf}>
+                </lightning-button>
+            </div>
+        </div> -->
+    </lightning-card>
+</template>

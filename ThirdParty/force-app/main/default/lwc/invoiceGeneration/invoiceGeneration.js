@@ -27,7 +27,6 @@ export default class InvoiceGeneration extends LightningElement {
     handleOppChange(event){
         this.opportunityName = event.target.value;
         console.log('Opportunity Name:', this.opportunityName);
-        
     }
 
     searchProduct(){

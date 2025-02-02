@@ -1,0 +1,32 @@
+<template>
+    <lightning-card title="Calculator">
+        <div class="slds-m-around_medium">
+            <lightning-input type="number" label="Enter first number" step="0.01"
+                                value={firstNumber} onchange={handleFirstNumberChange}>
+            </lightning-input>
+            <lightning-input type="number" label="Enter Second number" step="0.01"
+                                value={secondNumber} onchange={handleSecondNumberChange}>
+            </lightning-input>
+            <div class="slds-p-around_medium button-container">
+                <lightning-button variant="brand" label="+" title="Add"
+                                onclick={handleAdd}>
+            </lightning-button>
+            <lightning-button variant="brand" label="-" title="Subtract"
+                                onclick={handleSub}>
+            </lightning-button>
+            <lightning-button variant="brand" label="x" title="Multiply"
+                                onclick={handleMul}>
+            </lightning-button>
+            <lightning-button variant="brand" label="/" title="Division"
+                                onclick={handleDiv}>
+            </lightning-button>
+            </div>
+            <template if:true={result}>
+                
+                <div class="slds-m-top_small slds-border_top slds-border_bottom slds-border_right slds-border_left custom-border">
+                    <lightning-input value={result} label="Result" readonly></lightning-input>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

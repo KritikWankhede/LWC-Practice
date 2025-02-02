@@ -1,0 +1,7 @@
+.button-container lightning-button {
+    margin-right: 10px; 
+}
+/* border: var(--slds-sizing-border-4, 4px) solid black; */
+.custom-border {
+    border: var(--slds-sizing-border-4, 2px) solid black;
+}

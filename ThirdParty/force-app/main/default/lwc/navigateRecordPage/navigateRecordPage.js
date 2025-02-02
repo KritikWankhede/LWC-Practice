@@ -11,8 +11,14 @@ export default class NavigateRecordPage extends NavigationMixin(LightningElement
                 actionName:'view'
             }
 
-        })
+        });
+        console.log("Navigate to Record Page");
     }
+    /*
+    Added to check thw navigation
+
+
+    */
     navigateToEditRecordPage(){
         this[NavigationMixin.Navigate]({
             type:'standard__recordPage',
@@ -23,6 +29,7 @@ export default class NavigateRecordPage extends NavigationMixin(LightningElement
             }
 
         })
+        console.log("Navigate to Edit Record Page");
     }
     
 }

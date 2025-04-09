@@ -1,0 +1,30 @@
+<template>
+    
+<lightning-card title="New Opportunity">
+    <div class="slds-card__body slds-card__body_inner">
+    <lightning-input type="text" label="Opportunity Name" onchange={handleChange}></lightning-input>
+    <lightning-input type="date" label="Close Date" onchange={handleCloseDate}></lightning-input>
+    
+    <template if:true={showError}>
+        <div class="slds-notify slds-notify_alert slds-theme_alert-texture">
+            <span class="slds-assistive-text">Error:</span>
+            <p>Date cannot be in the past</p>
+        </div>
+    </template>
+    <lightning-input type="text" label="Stage" onchange={handleChange}></lightning-input>
+    <lightning-input type="text" label="Amount" onchange={handleChange}></lightning-input>  
+</div>
+
+    <div class="slds-m-around_medium">
+        <lightning-button label="Save" onclick={handleSave} variant="brand"></lightning-button>
+    </div>
+    <div class="slds-p-around_medium">
+        <template if:true={checkEvery}>
+            <div class="slds-notify slds-notify_alert slds-theme_alert-texture">
+                <p >Cannot Save Check Date Class</p>
+            </div>
+        </template>  
+    </div>
+</lightning-card>
+
+</template>

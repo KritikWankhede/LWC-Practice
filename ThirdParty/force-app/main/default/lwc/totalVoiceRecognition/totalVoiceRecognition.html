@@ -1,0 +1,84 @@
+<template>
+    <lightning-card title="Speech To Text">
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+            name="language"
+            label="Select Language"
+            value={value}
+            placeholder="Choose a language"
+            options={languages}
+            onchange={selectLanguage}>
+        </lightning-combobox>
+        </div>
+        <div class="slds-var-m-around_medium">
+            <lightning-combobox
+            name="language"
+            label="Select Language to Translate"
+            value={value}
+            placeholder="Choose a language (Default is English USA)"
+            options={languages}
+            onchange={translationOption}>
+        </lightning-combobox>
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-m-around_medium">
+                <lightning-button
+                label="Start"
+                title="Start"
+                onclick={startRecording}
+                disabled={isStartButtonDisabled}
+                variant="brand"
+                icon-name="utility:record"
+                ></lightning-button>
+            </div>
+            <div class="slds-m-around_medium">
+                <lightning-button
+                label="Stop"
+                title="Stop"
+                onclick={stopRecording}
+                variant="destructive"
+                disabled={isStopButtonDisabled}
+                icon-name="utility:stop"
+                ></lightning-button>
+            </div>
+            <div class="slds-m-around_medium">
+                <lightning-button
+                label="Translate"
+                title="Translate"
+                onclick={translateTranscript}
+                variant="brand"
+                disabled={isStartButtonDisabled}
+                icon-name="utility:translate"
+                ></lightning-button>
+            </div>
+        
+        </div>
+            
+         <div class="slds-m-around_medium">
+            <template lwc:if={transcript} >
+                <div class="slds-box slds-theme_default">
+                    <p>{transcript}</p>
+                </div>
+            </template>
+            <template lwc:if={error} >
+                <div class="slds-box slds-theme_error">
+                    <p>{errorMessage}</p>
+                </div>
+            </template>
+         </div>
+         <div>
+            <template lwc:if={showDefaultText} >
+                <div class="slds-box slds-theme_default">
+                    <p>Click On Start Recording for Seeing text on Screen.</p>
+                </div>
+            </template>
+         </div>
+         <div>
+            <template lwc:if={showTranslatedText} >
+                <div class="slds-box slds-theme_default">
+                    <p>{translatedTranscript}</p>
+                </div>
+            </template>
+         </div>
+    </lightning-card>
+</template>

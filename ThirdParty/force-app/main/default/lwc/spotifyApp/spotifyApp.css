@@ -1,0 +1,56 @@
+.spotify-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.spotify-card {
+    background: #1db954;
+    color: white;
+    padding: 15px;
+    border-radius: 10px;
+    text-align: center;
+    position: relative;
+}
+
+.spotify-image {
+    width: 100%;
+    max-width: 150px;
+    border-radius: 5px;
+}
+
+.spotify-artist {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.spotify-link {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* Song Selection Tile */
+.song-tile {
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+
+.song-tile:hover {
+    transform: scale(1.05);
+}
+
+/* Close Icon */
+.close-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: white;
+}
+
+/* Selected Song Card - Fixed on Side */
+.selected-song-card {
+    position: sticky;
+    top: 10px;
+}

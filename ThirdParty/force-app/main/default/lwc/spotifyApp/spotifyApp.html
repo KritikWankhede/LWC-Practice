@@ -1,0 +1,55 @@
+<template>
+    <lightning-card title="Song Search">
+        <div class="slds-m-around_medium">
+            <lightning-input placeholder="Enter the song" label="Enter the song" onchange={songReader}></lightning-input>
+            <lightning-button label="Search" variant="brand" onclick={searchSongs}></lightning-button>
+        </div>
+
+        <div class="slds-grid slds-wrap">
+            <!-- Song List -->
+            <div class="slds-size_2-of-3 slds-p-around_medium">
+                <template if:true={songs}>
+                    <div class="slds-grid slds-wrap spotify-grid">
+                        <template for:each={songs} for:item="song">
+                            <div key={song.name} class="slds-col slds-size_1-of-3 slds-p-around_small song-tile" 
+                                data-name={song.name} onclick={selectSong}>
+                                <div class="spotify-card">
+                                    <div class="slds-m-around_medium">
+                                        <p class="spotify-artist">{song.name}</p>
+                                        <img src={song.imageUrl} alt={song.name} class="spotify-image" />
+                                        <p class="spotify-artist">Artist: {song.artist}</p>
+                                        <a href={song.songUrl} target="_blank" class="spotify-link">Play on Spotify</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </template>
+            </div>
+
+            <!-- Selected Song Card (Fixed on Side) -->
+            <template if:true={selectedSong}>
+                <div class="slds-size_1-of-3 slds-p-around_medium selected-song-card">
+                    <div class="spotify-card slds-box">
+                        <!-- Close Icon -->
+                        <lightning-icon icon-name="utility:close" size="small" class="close-icon" onclick={closeSelectedSong}></lightning-icon>
+                        
+                        <div class="slds-m-around_medium">
+                            <p class="spotify-artist">{selectedSong.name}</p>
+                            <img src={selectedSong.imageUrl} alt={selectedSong.name} class="spotify-image" />
+                            
+                            <template if:true={selectedSong.previewUrl}>
+                                <audio src={selectedSong.previewUrl} controls></audio>
+                            </template>
+                            <template if:false={selectedSong.previewUrl}>
+                                <p>No preview available.</p>
+                            </template>
+
+                            <iframe src={selectedSong.sourceUrl} width="300" height="80" frameborder="0" allow="encrypted-media"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </lightning-card>
+</template>

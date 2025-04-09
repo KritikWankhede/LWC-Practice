@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title="Zip and Unzip Files" icon-name="custom:custom63">
+        <div class="slds-m-around_medium">
+            <lightning-file-upload
+                name="fileUpload"
+                accept=".zip"
+                onuploadfinished={handleUploadFinished}
+            ></lightning-file-upload>
+        </div>
+        <div class="slds-p-around_medium">
+            <lightning-button variant="brand" label="Zip" onclick={handleZip} >
+            </lightning-button>
+            <lightning-button variant="brand" label="Unzip" onclick={handleUnzip}>
+            </lightning-button>
+        </div>   
+    </lightning-card>
+</template>

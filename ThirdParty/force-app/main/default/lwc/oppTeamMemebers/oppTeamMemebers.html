@@ -1,0 +1,17 @@
+<template>
+    
+    <lightning-card title="Select Record Type">
+        <template if:true={ck}>
+            <p>There are No records type</p>
+        </template>
+        <template if:false={ck}>
+            <lightning-radio-group
+            label="Record Types"
+            options={recordTypeOptions}
+            value={selectedRecordType}
+            onchange={handleRecordTypeChange}>
+            </lightning-radio-group>
+        </template>
+        
+    </lightning-card>
+</template>

@@ -1,0 +1,9 @@
+<template>
+    <lightning-card icon-name="standard:record" title="Record Update">
+        <lightning-input label="Enter Account Name" onchange={handleChange}></lightning-input>
+        <lightning-input label="Enter Account Phone" onchange={handleChange} type="tel"
+            placeholder="Phone Number should be of 10 digits"></lightning-input>
+        <lightning-button label="Update Account" onclick={handleClick}
+             variant='brand'></lightning-button>
+    </lightning-card>
+</template>

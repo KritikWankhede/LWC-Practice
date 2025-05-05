@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Train Live Status" icon-name="custom:custom76">
+        <lightning-input
+            label="Enter Train ID"
+            type="text"
+            placeholder="Enter Train Number"
+            onchange={handleKeyChange}>
+        </lightning-input>
+        <div class="slds-p-around_small">
+            <lightning-button
+             variant="brand"
+             label="Submit"
+             onclick={handleSubmit}>
+            </lightning-button>
+        </div>
+        
+    </lightning-card>
+</template>

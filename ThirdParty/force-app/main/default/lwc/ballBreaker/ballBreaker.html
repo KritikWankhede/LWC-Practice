@@ -1,0 +1,30 @@
+<template>
+    <div class="body">
+        <!-- Start Screen -->
+        <div id="startScreen">
+            <h2>2D Brick Breaker Game!</h2>
+            <label for="playerName">
+                Enter your name to play
+            </label>
+            <input type="text" 
+                   id="playerName" 
+                   placeholder="Your Name">
+            <button id="startButton">
+                Start Game
+            </button>
+        </div>
+
+        <!-- Game Screen -->
+        <div id="gameScreen" class="hidden">
+            <canvas id="canvas"></canvas>
+            <div style="display: inline;">
+                <h2 style="text-align: center;" id="curr_score">
+                    YOUR SCORE:
+                </h2>
+                <h2 style="text-align: center;" id="high_score">
+                    HIGH SCORE:
+                </h2>
+            </div>
+        </div>
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<template>
+    <lightning-card title="Hand Gesture" icon-name="custom:custom75">
+        <div class="slds-m-around_medium">
+            <lightning-button label="Start"
+                variant="brand"
+            onclick={startHandler}>
+            </lightning-button>
+        </div>
+        <template if:true={startCamera}>
+            <div class="camera-container">
+                <video id="video" autoplay></video>
+            </div>
+        </template>
+    </lightning-card>
+</template>

@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Conversation with Direct Messages Component A" icon-name="standard:survey">
+        <div class="slds-p-around_medium">
+
+            <lightning-input label="Enter the Message" 
+                            type="text" 
+                            placeholder="Type your Message here"
+                            onchange={handleChange}>
+            </lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <lightning-button label="Send Message" onclick={handleClick} variant="brand">
+            </lightning-button>
+        </div>
+
+        <div class="slds-p-around_small">
+            <lightning-formatted-text value={receivedMesssage} ></lightning-formatted-text>
+        </div>
+    </lightning-card> 
+</template>

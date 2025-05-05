@@ -1,0 +1,14 @@
+.score-board {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.score-board p {
+    margin: 0;
+}

@@ -1,0 +1,9 @@
+<template>
+    <lightning-card title="Child's Parent Componet">
+        <template if:true={colorName}>
+            <p class="slds-m-around_medium">The color {colorName}</p>
+        </template>
+        <div class="color-bar" style={colorBarStyle}></div>
+        <c-child-component-a oncolorchange={handleChange}></c-child-component-a>
+    </lightning-card>
+</template>

@@ -1,8 +1,12 @@
 <template>
     <lightning-card>
         
-        <lightning-input type="text" label="Write Something To Hear It and press Enter" value={testvalue} onkeypress={handleEnter}>
+        <lightning-input type="text" label="Write Something To Hear It and press Enter" placeholder={testvalue} onchange={mobileFunc} onkeypress={handleEnter}>
         </lightning-input>
+        <div class="slds-m-around_medium">
+            <lightning-button onclick={handleClickToSpeak} label="Click to Hear" variant="brand">
+            </lightning-button>
+        </div>
         <div class="slds-m-bottom_xx-small">
         <lightning-input type="text" label="You Said" value={searchKey}>
         </lightning-input>

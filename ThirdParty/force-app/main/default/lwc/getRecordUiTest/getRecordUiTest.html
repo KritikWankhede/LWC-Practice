@@ -1,0 +1,27 @@
+<template>
+    <lightning-card title="Record Ui Api" icon-name="standard:record">
+        <!-- <div class="slds-p-around_medium">
+            <lightning-input label="Enter the record ID" 
+            placeholder="Record Id must be of 18 digits or 15 digits"
+            onchange={handleChange}></lightning-input>
+        </div>
+        <div class="slds-p-around_medium">
+            <lightning-input label="Enter the object API Name" 
+            placeholder="Enter the object Name Here"
+            onchange={handleChange}></lightning-input>
+        </div> -->
+        <div class="slds-m-around_medium">
+            <template if:true={processedFields}>
+                <template for:each={processedFields} for:item="field">
+                    <p key={field.apiName}>
+                    <strong>{field.label}: {field.value}</strong></p>
+                </template>
+            </template>
+        </div>
+        <div class="slds-p-around_medium">
+            <template if:true={error}>
+                <p class="slds-text-color_error">{error}</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

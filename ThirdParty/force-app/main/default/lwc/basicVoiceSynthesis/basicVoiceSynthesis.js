@@ -12,7 +12,11 @@ export default class BasicVoiceSynthesis extends NavigationMixin(LightningElemen
    _speechDBLead = [];
    _showSpinner = false;
    _recognition;
+   mobMessage;
+   mobileFunc(event){
+      this.mobMessage=event.target.value;
 
+   }
 
 
    connectedCallback() {
@@ -181,6 +185,14 @@ export default class BasicVoiceSynthesis extends NavigationMixin(LightningElemen
          };
 
       }
+   }
+
+   handleClickToSpeak(){
+      var utterance = new SpeechSynthesisUtterance(this.mobMessage);
+         window.speechSynthesis.speak(utterance);
+         utterance.onstart = function (event) {
+            console.log('The utterance started to be spoken.')
+         };
    }
 
    // Navigate to New Account Page

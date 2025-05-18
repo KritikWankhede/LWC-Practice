@@ -1,0 +1,58 @@
+name: Deploy to Salesforce
+
+on:
+  push:
+    branches:
+      - dev  # Trigger on push to the 'dev' branch (for QA)
+      - main # Trigger on push to the 'main' branch (for Production)
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    
+    # Strategy to define environment
+    strategy:
+      matrix:
+        environment:
+          - QA
+          - Production
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+      
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '14'  # Or a more recent version
+      
+      - name: Install Salesforce CLI
+        run: |
+          npm install --global @salesforce/cli
+      
+      - name: Authenticate with Salesforce
+        env:
+          SFDX_URL: ${{ secrets.SFDX_URL_QA }} #  Use  secrets
+        if: matrix.environment == 'QA'
+        run: |
+          echo $SFDX_URL > sfdx-auth.txt
+          sf org login sfdx-url --url-file sfdx-auth.txt --alias qa
+          
+      - name: Authenticate with Salesforce Production
+        env:
+          SFDX_URL: ${{ secrets.SFDX_URL_PROD }} # Use different secret for production
+        if: matrix.environment == 'Production'
+        run: |
+          echo $SFDX_URL > sfdx-auth.txt
+          sf org login sfdx-url --url-file sfdx-auth.txt --alias prod
+      
+      - name: Deploy to QA
+        if: matrix.environment == 'QA'
+        run: |
+          sf project deploy start --target-org qa --source-dir force-app --test-level RunLocalTests
+          
+      - name: Deploy to Production
+        if: matrix.environment == 'Production'
+        run: |
+          sf project deploy start --target-org prod --source-dir force-app --test-level RunSpecifiedTests --test-name "MyTestClass" # Specify tests
+

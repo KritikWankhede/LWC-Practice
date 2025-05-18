@@ -1,0 +1,51 @@
+<template>
+    <div class="game-container">
+        <div class="info-bar">
+            <span>Score: {score}</span>
+            <span>Level: {level}</span>
+        </div>
+
+        <canvas class="game-canvas" lwc:dom="manual"></canvas>
+
+        <div class="button-bar">
+            <lightning-button
+                variant="brand"
+                label={startButtonLabel}
+                title="Start or Restart Game"
+                onclick={startOrRestartGame}
+            ></lightning-button>
+
+            <lightning-button
+            variant="neutral"
+            label={pauseButtonLabel}
+            title="Pause or Resume Game"
+            onclick={togglePause}
+            disabled={isPauseButtonDisabled}
+            ></lightning-button>
+        </div>
+        <div class="slds-p-around_medium button-bar">
+                
+            
+            <lightning-button label="Left 👈" 
+                onclick={handleButtonClick} 
+                onmouseup={handleButtonRelease} 
+                data-direction="left">
+            </lightning-button>
+            <lightning-button label="Right 👉" 
+                onclick={handleButtonClick} 
+                onmouseup={handleButtonRelease} 
+                data-direction="right">
+            </lightning-button>
+
+        </div>
+    </div>
+    <template if:true={showGameOverModal}>
+        <div class="modal">
+            <div class="modal-content">
+                <h2>{gameOverMessage}</h2>
+                <button onclick={closeModal}>OK</button>
+            </div>
+        </div>
+    </template>
+    
+</template>
